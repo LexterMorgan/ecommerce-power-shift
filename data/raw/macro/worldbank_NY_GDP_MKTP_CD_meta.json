@@ -1,0 +1,6 @@
+{
+  "url": "https://api.worldbank.org/v2/country/IDN/indicator/NY.GDP.MKTP.CD?format=json&date=2015:2025&per_page=100",
+  "acquired_at": "2026-08-12T13:13:49.139452+00:00",
+  "indicator": "NY.GDP.MKTP.CD",
+  "name": "GDP (current US$)"
+}

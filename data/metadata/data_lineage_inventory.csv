@@ -1,0 +1,20 @@
+stage,path,purpose,grain,key_columns,time_coverage,source,value_status,downstream
+SOURCE_RAW,data/raw/market_position/market_position_indonesia_mw_public_excerpts.csv,Primary MW share/GMV excerpts,year x platform,"year,platform,entity_type,market_share_pct,gmv_estimate_usd_billion,citation_url",2020;2022-2025,MW via secondary press,OBSERVED,python/process_data.py → processed/market_position
+SOURCE_RAW,data/raw/events/competitive_events.csv,Competitive/regulatory timeline,event,"event_id,event_date,source_url",2021-2025,GoTo/TikTok/news,CONTEXT,process_data → processed/events
+SOURCE_RAW,data/raw/structural_break/entity_split_2024_2025.csv,Entity-split 2024-25 evidence,year x entity x metric,"value,source_type,comparability",2023-2026,MW/APJII/GoTo/TikTok,OBSERVED/DERIVED/UNKNOWN,process_data → processed/structural_break
+SOURCE_RAW,data/raw/2025_comparable/platform_metrics_2025.csv,Gate 5.5 2025 metrics,year x entity x metric,"value,comparability,evidence_type",2025,MW/APJII/GoTo/BI,OBSERVED/UNKNOWN,Gate 5.5 report; analysis support
+SOURCE_RAW,data/raw/sea/sea_shopee_official_metrics_curated.csv,Sea company context,period x metric,value;geography,2024-2026Q1,Sea IR,CONTEXT_NOT_DYAD,process_data → company_context
+SOURCE_RAW,data/raw/goto/goto_ecommerce_context_curated.csv,GoTo company context,period x metric,value;geography,2024-2025,GoTo IR,CONTEXT_NOT_DYAD,process_data → company_context
+SOURCE_RAW,data/raw/macro/worldbank_indonesia_indicators_extract.csv,Macro context,year x indicator,value,2015-2025,World Bank API,CONTEXT,process_data → macro
+SOURCE_RAW,data/raw/google_trends/,Trends (blocked),n/a,README;blocker JSON,n/a,Google Trends,BLOCKED,none until manual CSV
+INGESTION,python/ingestion/load_raw.py,Load fixed raw paths,n/a,n/a,n/a,code,n/a,clean.py
+CLEANING,python/cleaning/clean.py,Type/canonicalize/sort; no NA fill,n/a,n/a,n/a,code,n/a,validate.py
+VALIDATION,python/validation/validate.py,Schema/bounds/dupes/entity checks,n/a,n/a,n/a,code,n/a,process_data writes
+PROCESSED,data/processed/market_position/market_position_indonesia.csv,Canonical platform series,year x platform,same as raw cleaned,2020;2022-2025,from raw MP,OBSERVED,prepare_analysis_ready; Gates 5-6
+PROCESSED,data/processed/gate5_competitive_analysis.csv,Claim matrix Gate 5,claim,claim_id;evidence_type;value,2023-2025,curated from MP+sources,OBSERVED/DERIVED/INFERRED/UNKNOWN,Gate 5 docs
+PROCESSED,data/processed/gate6_scenario_inputs.csv,Scenario starting evidence,input,value_type;comparability,2022-2025,curated,OBSERVED/DERIVED/UNKNOWN,Gate 6 scenarios
+PROCESSED,data/processed/gate6_scenario_outputs.csv,Scenario bands,scenario,scenario_low/high;value_type,post-2025,scenario design,SCENARIO/UNKNOWN,Gate 6 scenario framework
+ANALYSIS_READY,data/processed/analysis_ready/competitive_panel.csv,Unified panel with phase labels,year x entity x metric,phase;value_status;comparability,2020;2022-2025,from processed MP + explicit UNKNOWN/DERIVED,OBSERVED/DERIVED/UNKNOWN,portfolio analysis entry point
+DOCS,research/data_lineage_and_preparation.md,Lineage narrative,n/a,n/a,n/a,this gate,n/a,reviewers
+DOCS,research/data_pipeline.md,Pipeline diagram,n/a,n/a,n/a,this gate,n/a,reviewers
+DOCS,research/data_dictionary.md,Field dictionary Gates 5-6,n/a,n/a,n/a,this gate,n/a,reviewers

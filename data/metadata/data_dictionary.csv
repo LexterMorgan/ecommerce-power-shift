@@ -1,0 +1,43 @@
+dataset,column,description,data_type,unit,allowed_values,nullable,source,transformation,notes
+market_position,year,Calendar year of estimate,integer,year,2015-2026,false,Momentum Works public excerpts,to Int64,Annual grain only
+market_position,country,Country scope,string,,Indonesia,false,curated,forced Indonesia,
+market_position,platform,Platform name canonicalized,string,,Shopee|Tokopedia|Lazada|Bukalapak|Blibli|TikTok Shop|Tokopedia + TikTok Shop,false,curated,canonicalize_platform,
+market_position,entity_type,Whether row is standalone or combined entity,string,,standalone|combined,false,curated,lowercase,2025 Tokopedia+TikTok Shop is combined
+market_position,gmv_estimate_usd_billion,Estimated platform GMV,float,USD billions,,true,MW secondary,to numeric,Missing when not published; not imputed
+market_position,market_share_pct,Estimated marketplace GMV share,float,percent 0-100,0-100,false,MW secondary,to numeric,Industry estimate
+market_position,market_total_gmv_usd_billion,Estimated Indonesia market total GMV,float,USD billions,,true,MW secondary,to numeric,
+market_position,rank,Reported or implied rank,integer,,positive,true,MW secondary,to numeric,
+market_position,source_publisher,Publisher chain,string,,,false,curated,none,
+market_position,source_report,Report title if known,string,,,true,curated,none,
+market_position,citation_url,Public citation URL,string,url,,false,curated,none,
+market_position,source_date_accessed,Access date,string,ISO date,,false,curated,none,
+market_position,methodology_note,Caveats,string,,,true,curated,none,
+market_position,confidence,Qualitative confidence,string,,HIGH|MEDIUM|LOW,false,curated,uppercase,
+events,event_id,Stable event identifier,string,,,false,curated,none,
+events,event_date,Event date,datetime,date,,false,curated,to_datetime,
+events,event_end_date,Optional end date,datetime,date,,true,curated,to_datetime,
+events,event_type,Event category,string,,,false,curated,lowercase,
+events,event_title,Short title,string,,,false,curated,none,
+events,platform,Affected platform(s),string,,,false,curated,none,
+events,description,Neutral description,string,,,false,curated,none,
+events,source,Source name,string,,,false,curated,none,
+events,source_url,Source URL,string,url,,false,curated,none,
+events,impact_direction,Non-causal directional tag,string,,,true,curated,none,Not a causal claim
+events,confidence,Source confidence,string,,HIGH|MEDIUM|LOW,false,curated,uppercase,
+company_context,period,Period label,string,,,false,Sea/GoTo curated,none,e.g. 2025 or 2025Q1
+company_context,period_type,Period type,string,,annual|quarter|event_marker,false,curated,none,
+company_context,metric,Metric code,string,,,false,curated,strip,
+company_context,value,Metric value,float,varies by unit,,false,curated,to numeric,
+company_context,unit,Unit of value,string,,,false,curated,strip,
+company_context,company,Company name,string,,Sea Limited|GoTo,false,pipeline,set label,
+company_context,geography,Geographic scope text,string,,,false,curated,none,Critical for non-comparability
+company_context,definition,Metric definition,string,,,true,curated,none,
+macro,indicator_code,World Bank indicator code,string,,,false,World Bank API,none,
+macro,indicator_name,Indicator label,string,,,false,World Bank API,none,
+macro,year,Year,integer,year,,false,World Bank API,to Int64,
+macro,value,Indicator value,float,varies,,true,World Bank API,to numeric,Nulls retained
+macro,country,Country,string,,Indonesia,false,pipeline,forced,
+google_trends,date,Observation date,datetime,date,,false,Google Trends,to_datetime,When acquired
+google_trends,term,Search term,string,,Shopee|Tokopedia,false,Google Trends,melt,When acquired
+google_trends,interest,Relative search interest,float,index 0-100,0-100,true,Google Trends,to numeric,NOT market share
+google_trends,geo,Trends geography code,string,,ID,false,pipeline,constant,

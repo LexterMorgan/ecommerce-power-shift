@@ -1,0 +1,8 @@
+{
+  "status": "MULTILINE_RATE_LIMITED",
+  "attempted_at": "2026-08-12T13:16:24.893017+00:00",
+  "explore_status": 200,
+  "multiline_status": 429,
+  "manual_export_path": "data/raw/google_trends/google_trends_indonesia_shopee_tokopedia_manual.csv",
+  "manual_instructions": "Open https://trends.google.com/trends/explore?date=today%205-y&geo=ID&q=Shopee,Tokopedia ; Download interest-over-time CSV; place at path above."
+}

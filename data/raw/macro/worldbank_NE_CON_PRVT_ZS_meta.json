@@ -1,0 +1,6 @@
+{
+  "url": "https://api.worldbank.org/v2/country/IDN/indicator/NE.CON.PRVT.ZS?format=json&date=2015:2025&per_page=100",
+  "acquired_at": "2026-08-12T13:13:50.737511+00:00",
+  "indicator": "NE.CON.PRVT.ZS",
+  "name": "Households and NPISHs final consumption expenditure (% of GDP)"
+}

@@ -1,0 +1,3 @@
+year,analytical_entity,source_platform,entity_type,metric,value,unit,phase,value_status,comparability,source_publisher,citation_url,confidence,notes
+2025,Legacy Tokopedia,Tokopedia,standalone,gmv_estimate_usd_billion,,USD_billions,phase3_post_break,UNKNOWN,NOT COMPARABLE,Gate 5.5 final search,research/final_2025_data_search.md,HIGH,KEEP MISSING — not fabricated; Combined 38% is a different entity
+2025,Legacy Tokopedia,Tokopedia,standalone,market_share_pct,,percent,phase3_post_break,UNKNOWN,NOT COMPARABLE,Gate 5.5 final search,research/final_2025_data_search.md,HIGH,KEEP MISSING — not fabricated; Combined 38% is a different entity

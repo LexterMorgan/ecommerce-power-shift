@@ -1,0 +1,23 @@
+year,marketplace,metric,value_status,comparability,entity_type,phase
+2025,Shopee,market_share_pct,OBSERVED,DIRECT,standalone,phase3_post_break
+2022,TikTok Shop,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_tts
+2025,Combined Tokopedia + TikTok Shop,gmv_estimate_usd_billion,OBSERVED,NOT COMPARABLE,combined,phase3_post_break
+2024,Combined Tokopedia + TikTok Shop,market_share_pct,DERIVED,CONDITIONAL,combined_derived,phase1_historical_standalone
+2024,Shopee,gmv_estimate_usd_billion,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2020,Shopee,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2020,Legacy Tokopedia,gmv_estimate_usd_billion,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2024,Legacy Tokopedia,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2024,Shopee,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2024,TikTok Shop,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_tts
+2022,Legacy Tokopedia,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2023,Shopee,gmv_estimate_usd_billion,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2023,TikTok Shop,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_tts
+2025,Shopee,gmv_estimate_usd_billion,OBSERVED,DIRECT,standalone,phase3_post_break
+2025,Legacy Tokopedia,gmv_estimate_usd_billion,UNKNOWN,NOT COMPARABLE,standalone,phase3_post_break
+2020,Shopee,gmv_estimate_usd_billion,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2020,Legacy Tokopedia,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2023,Legacy Tokopedia,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2022,Shopee,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone
+2025,Combined Tokopedia + TikTok Shop,market_share_pct,OBSERVED,NOT COMPARABLE,combined,phase3_post_break
+2025,Legacy Tokopedia,market_share_pct,UNKNOWN,NOT COMPARABLE,standalone,phase3_post_break
+2023,Shopee,market_share_pct,OBSERVED,DIRECT,standalone,phase1_historical_standalone

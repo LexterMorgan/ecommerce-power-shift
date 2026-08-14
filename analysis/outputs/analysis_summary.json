@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-08-12T15:55:17.700648+00:00",
+  "gate": "7A",
+  "canonical_input": "/Users/lex/Projects/ecommerce-power-shift/data/processed/analysis_ready/competitive_panel.csv",
+  "rules": [
+    "Plot OBSERVED and DERIVED only",
+    "Never convert UNKNOWN/null to zero",
+    "2022-2024 standalone separate from 2025 Combined",
+    "Gate 1-6 conclusions unchanged"
+  ],
+  "phase1": {
+    "shopee_2022": 36.0,
+    "legacy_tokopedia_2022": 35.0,
+    "gap_2022_pp": 1.0,
+    "shopee_2024": 46.0,
+    "legacy_tokopedia_2024": 23.0,
+    "gap_2024_pp": 23.0
+  },
+  "phase3": {
+    "shopee_2025": 54.0,
+    "combined_2025": 38.0,
+    "gap_2025_pp": 16.0,
+    "legacy_tokopedia_2025": "UNKNOWN"
+  },
+  "supporting": {
+    "tts_labeled_gmv_usd": 13100000000.0,
+    "access_entities": [
+      "Shopee Indonesia",
+      "TikTok Shop Indonesia",
+      "Legacy Tokopedia"
+    ]
+  },
+  "outputs": {
+    "tables": [
+      "analysis/outputs/tables/phase3_post_break_shares.csv",
+      "analysis/outputs/tables/supporting_tts_labeled_gmv.csv",
+      "analysis/outputs/tables/phase1_standalone_shares.csv",
+      "analysis/outputs/tables/share_gap_summary.csv",
+      "analysis/outputs/tables/supporting_apjii_access.csv",
+      "analysis/outputs/tables/legacy_tokopedia_2025_unknown.csv",
+      "analysis/outputs/tables/scenario_gap_bands.csv"
+    ],
+    "figures": {
+      "phase1_standalone_shares": "analysis/outputs/figures/phase1_standalone_shares.png",
+      "phase3_post_break": "analysis/outputs/figures/phase3_post_break_shopee_vs_combined.png",
+      "structural_break_story": "analysis/outputs/figures/structural_break_story.png",
+      "supporting_access": "analysis/outputs/figures/supporting_apjii_access.png",
+      "scenario_bands": "analysis/outputs/figures/scenario_gap_bands.png"
+    }
+  }
+}

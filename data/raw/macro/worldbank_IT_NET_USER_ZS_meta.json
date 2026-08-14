@@ -1,0 +1,6 @@
+{
+  "url": "https://api.worldbank.org/v2/country/IDN/indicator/IT.NET.USER.ZS?format=json&date=2015:2025&per_page=100",
+  "acquired_at": "2026-08-12T13:13:52.612662+00:00",
+  "indicator": "IT.NET.USER.ZS",
+  "name": "Individuals using the Internet (% of population)"
+}

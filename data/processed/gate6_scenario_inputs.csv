@@ -1,0 +1,19 @@
+input_id,phase,entity,metric,year,value,unit,value_type,comparability,source,notes
+IN01,phase1_baseline,Shopee,market_share_pct,2022,36,percent,OBSERVED,DIRECT,MW via Kemendag/Bisnis,Historical standalone
+IN02,phase1_baseline,Legacy Tokopedia,market_share_pct,2022,35,percent,OBSERVED,DIRECT,MW via Kemendag/Bisnis,Historical standalone
+IN03,phase1_baseline,Shopee,market_share_pct,2023,40,percent,OBSERVED,DIRECT,MW via CNBC,Historical standalone
+IN04,phase1_baseline,Legacy Tokopedia,market_share_pct,2023,30,percent,OBSERVED,DIRECT,MW via CNBC,Historical standalone
+IN05,phase1_baseline,Shopee,market_share_pct,2024,46,percent,OBSERVED,DIRECT,MW via Bisnis,Historical standalone
+IN06,phase1_baseline,Legacy Tokopedia,market_share_pct,2024,23,percent,OBSERVED,DIRECT,MW via Bisnis,Last clear Legacy standalone share
+IN07,phase1_baseline,TikTok Shop Indonesia,market_share_pct,2024,11,percent,OBSERVED,DIRECT,MW via Bisnis,Last clear TTS standalone share
+IN08,phase1_baseline,Combined Tokopedia + TikTok Shop,market_share_pct,2024,34,percent,DERIVED,CONDITIONAL,23+11,Additive baseline only
+IN09,phase3_2025,Shopee,market_share_pct,2025,54,percent,OBSERVED,DIRECT,MW via Bisnis,Post-break leader
+IN10,phase3_2025,Combined Tokopedia + TikTok Shop,market_share_pct,2025,38,percent,OBSERVED,NOT COMPARABLE,MW via Bisnis,NOT Legacy Tokopedia
+IN11,phase3_2025,Shopee,gmv_estimate_usd_billion,2025,31.2,USD_billions,OBSERVED,DIRECT,MW via Bisnis,
+IN12,phase3_2025,Combined Tokopedia + TikTok Shop,gmv_estimate_usd_billion,2025,21.9,USD_billions,OBSERVED,NOT COMPARABLE,MW via Bisnis,Combined only
+IN13,phase3_2025,Shopee vs Combined,share_gap_pp,2025,16,percentage_points,DERIVED,CONDITIONAL,54-38,Post-break gap
+IN14,phase3_2025,Legacy Tokopedia,market_share_pct,2025,,percent,UNKNOWN,NOT COMPARABLE,Gate 5.5,KEEP MISSING
+IN15,phase3_2025,TikTok Shop Indonesia,gmv_estimate_usd_billion,2025,13.1,USD_billions,OBSERVED,CONDITIONAL,MW via Digital in Asia/Kompas,TTS-labeled
+IN16,phase3_2025,Shopee,internet_user_access_share_pct,2025,53.22,percent,OBSERVED,CONDITIONAL,APJII via Kompas,Access not GMV
+IN17,phase3_2025,TikTok Shop Indonesia,internet_user_access_share_pct,2025,27.37,percent,OBSERVED,CONDITIONAL,APJII via Kompas,Access not GMV
+IN18,phase3_2025,Legacy Tokopedia,internet_user_access_share_pct,2025,9.57,percent,OBSERVED,CONDITIONAL,APJII via Kompas,Access not GMV

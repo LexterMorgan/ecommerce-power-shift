@@ -1,0 +1,2 @@
+year,entity,metric,value,unit,market_share,geography,period,source,source_url,source_date,source_type,methodology,comparability,confidence,evidence_type,notes
+2025,TikTok Shop Indonesia,gmv_estimate_usd,13100000000.0,USD,,Indonesia,FY2025,Digital in Asia; Kompas citing Momentum Works / Tabcut,https://digitalinasia.com/tiktok-shop-shopee-gmv-tracker/,2026-02-11,SECONDARY_HIGH,TTS-labeled Indonesia platform GMV estimate citing MW,CONDITIONAL,MEDIUM,OBSERVED,Entity-labeled TTS. CONDITIONAL vs Combined US$21.9B (additivity unproven). Not Legacy Tokopedia.

@@ -1,0 +1,180 @@
+{
+  "gate": "9",
+  "generated_at": "2026-08-14T10:27:42.768680+00:00",
+  "status": "PASS",
+  "checks_total": 28,
+  "checks_failed": 0,
+  "sections": {
+    "transformations": [
+      {
+        "check": "panel_row_count",
+        "status": "PASS",
+        "detail": "rows=22 expected=22"
+      },
+      {
+        "check": "panel_analytical_allowlist",
+        "status": "PASS",
+        "detail": "entities=['Combined Tokopedia + TikTok Shop', 'Legacy Tokopedia', 'Shopee', 'TikTok Shop']"
+      },
+      {
+        "check": "panel_required_columns",
+        "status": "PASS",
+        "detail": "missing=none"
+      }
+    ],
+    "analytical_metrics": [
+      {
+        "check": "locked_2022_Shopee_market_share_pct_OBSERVED",
+        "status": "PASS",
+        "detail": "expected=36.0 got=36.0"
+      },
+      {
+        "check": "locked_2022_Legacy Tokopedia_market_share_pct_OBSERVED",
+        "status": "PASS",
+        "detail": "expected=35.0 got=35.0"
+      },
+      {
+        "check": "locked_2024_Shopee_market_share_pct_OBSERVED",
+        "status": "PASS",
+        "detail": "expected=46.0 got=46.0"
+      },
+      {
+        "check": "locked_2024_Legacy Tokopedia_market_share_pct_OBSERVED",
+        "status": "PASS",
+        "detail": "expected=23.0 got=23.0"
+      },
+      {
+        "check": "locked_2025_Shopee_market_share_pct_OBSERVED",
+        "status": "PASS",
+        "detail": "expected=54.0 got=54.0"
+      },
+      {
+        "check": "locked_2025_Combined Tokopedia + TikTok Shop_market_share_pct_OBSERVED",
+        "status": "PASS",
+        "detail": "expected=38.0 got=38.0"
+      },
+      {
+        "check": "locked_2024_Combined Tokopedia + TikTok Shop_market_share_pct_DERIVED",
+        "status": "PASS",
+        "detail": "expected=34.0 got=34.0"
+      },
+      {
+        "check": "legacy_2025_unknown_null",
+        "status": "PASS",
+        "detail": "rows=2 nulls=2"
+      },
+      {
+        "check": "unknown_never_zero",
+        "status": "PASS",
+        "detail": "no UNKNOWN rows with value=0"
+      }
+    ],
+    "structural_break": [
+      {
+        "check": "standalone_share_rows",
+        "status": "PASS",
+        "detail": "n=6"
+      },
+      {
+        "check": "post_break_excludes_legacy",
+        "status": "PASS",
+        "detail": "entities=['Combined Tokopedia + TikTok Shop', 'Shopee']"
+      },
+      {
+        "check": "post_break_share_rows",
+        "status": "PASS",
+        "detail": "n=2"
+      }
+    ],
+    "claims_provenance": [
+      {
+        "check": "claim_doc_gate5_competitive_analysis.md",
+        "status": "PASS",
+        "detail": "missing_phrases=none"
+      },
+      {
+        "check": "claim_doc_gate6_competitive_evolution.md",
+        "status": "PASS",
+        "detail": "missing_phrases=none"
+      },
+      {
+        "check": "claim_doc_gate8_dashboard_architecture.md",
+        "status": "PASS",
+        "detail": "missing_phrases=none"
+      },
+      {
+        "check": "observed_have_citation",
+        "status": "PASS",
+        "detail": "observed_missing_citation=0"
+      },
+      {
+        "check": "value_status_vocabulary",
+        "status": "PASS",
+        "detail": "statuses=['DERIVED', 'OBSERVED', 'UNKNOWN']"
+      }
+    ],
+    "dashboard_metrics": [
+      {
+        "check": "dashboard_manifest_postgres",
+        "status": "PASS",
+        "detail": "engine=postgresql"
+      },
+      {
+        "check": "sqlite_deprecated",
+        "status": "PASS",
+        "detail": "sqlite_status=deprecated_removed"
+      },
+      {
+        "check": "share_gap_2025_pp",
+        "status": "PASS",
+        "detail": "rows=1"
+      },
+      {
+        "check": "static_overview_shopee_2025",
+        "status": "PASS",
+        "detail": "got=54.0"
+      },
+      {
+        "check": "static_overview_combined_2025",
+        "status": "PASS",
+        "detail": "got=38.0"
+      },
+      {
+        "check": "static_overview_legacy_unknown_label",
+        "status": "PASS",
+        "detail": "got=UNKNOWN"
+      },
+      {
+        "check": "static_unknown_values_null",
+        "status": "PASS",
+        "detail": "n=2"
+      },
+      {
+        "check": "postgres_panel_count",
+        "status": "PASS",
+        "detail": "db=22 csv=22"
+      }
+    ]
+  },
+  "dashboard_runtime": {
+    "postgres": "ok",
+    "static_snapshot": "ok"
+  },
+  "deployment_blockers_for_gate10": [
+    "Public Vercel project may still need to be connected/published (manual).",
+    "Regenerate frontend/public/data/dashboard_data.json after analytical refreshes.",
+    "Real portfolio screenshots remain a manual capture step.",
+    "Event timeline / driver pages intentionally out of Gate 7B scope.",
+    "PostgreSQL remains local/analytical infrastructure (not required by the public static UI)."
+  ],
+  "locked_story_reference": {
+    "shopee_2022": 36.0,
+    "legacy_2022": 35.0,
+    "shopee_2024": 46.0,
+    "legacy_2024": 23.0,
+    "shopee_2025": 54.0,
+    "combined_2025": 38.0,
+    "legacy_2025": "UNKNOWN"
+  },
+  "next_gate": "10 \u2014 Documentation & Deployment"
+}

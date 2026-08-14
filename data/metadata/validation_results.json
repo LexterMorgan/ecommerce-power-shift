@@ -1,0 +1,138 @@
+{
+  "generated_at": "2026-08-12T15:23:51.916047+00:00",
+  "results": [
+    {
+      "dataset": "market_position",
+      "rows_raw": 24,
+      "rows_processed": 24,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "Some GMV values are intentionally missing (not published in free citations).",
+        "Combined Tokopedia + TikTok Shop rows present; not standalone-comparable without adjustment.",
+        "Source family is industry estimates via secondary public citations; not official platform filings."
+      ]
+    },
+    {
+      "dataset": "events",
+      "rows_raw": 10,
+      "rows_processed": 10,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "Events are contextual; impact_direction is not causal proof."
+      ]
+    },
+    {
+      "dataset": "structural_break",
+      "rows_raw": 18,
+      "rows_processed": 18,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "Entity distinctions are mandatory: Legacy Tokopedia vs TikTok Shop Indonesia vs Combined.",
+        "DERIVED residual Legacy Tokopedia 2025 is LOW confidence pending MW additivity confirmation.",
+        "UNKNOWN standalone Legacy Tokopedia 2025 share row must keep null value.",
+        "Never treat Combined 2025 share as standalone Tokopedia."
+      ]
+    },
+    {
+      "dataset": "entity_split",
+      "rows_raw": 37,
+      "rows_processed": 37,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "Gate 3B entity-split table: every non-missing value must have a source.",
+        "DERIVED rows must remain labeled DERIVED.",
+        "UNKNOWN Legacy Tokopedia 2025 GMV/share must remain null.",
+        "APJII access metrics are not GMV share."
+      ]
+    },
+    {
+      "dataset": "sea",
+      "rows_raw": 8,
+      "rows_processed": 8,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "Company metrics are NOT comparable to Indonesia platform market-share estimates.",
+        "Sea geography is multi-country unless explicitly Indonesia.",
+        "GoTo Core GTV excludes Tokopedia after Jan 2024 deconsolidation."
+      ]
+    },
+    {
+      "dataset": "goto",
+      "rows_raw": 6,
+      "rows_processed": 6,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "Company metrics are NOT comparable to Indonesia platform market-share estimates.",
+        "Sea geography is multi-country unless explicitly Indonesia.",
+        "GoTo Core GTV excludes Tokopedia after Jan 2024 deconsolidation."
+      ]
+    },
+    {
+      "dataset": "macro",
+      "rows_raw": 55,
+      "rows_processed": 55,
+      "duplicate_keys": 0,
+      "missing_required_values": 0,
+      "invalid_percentages": 0,
+      "invalid_years": 0,
+      "unknown_platforms": 0,
+      "invalid_dates": 0,
+      "impossible_values": 0,
+      "status": "PASS",
+      "notes": [
+        "World Bank nulls retained as missing years; not imputed.",
+        "Macro indicators are contextual, not platform share."
+      ]
+    }
+  ],
+  "trends_blocker": {
+    "status": "MULTILINE_RATE_LIMITED",
+    "attempted_at": "2026-08-12T13:16:24.893017+00:00",
+    "explore_status": 200,
+    "multiline_status": 429,
+    "manual_export_path": "data/raw/google_trends/google_trends_indonesia_shopee_tokopedia_manual.csv",
+    "manual_instructions": "Open https://trends.google.com/trends/explore?date=today%205-y&geo=ID&q=Shopee,Tokopedia ; Download interest-over-time CSV; place at path above."
+  }
+}

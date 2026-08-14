@@ -1,0 +1,39 @@
+{
+  "gate": "7B",
+  "database_engine": "postgresql",
+  "database": "postgresql://localhost:5432/ecommerce_power_shift",
+  "built_at_utc": "2026-08-14T10:27:41.502724+00:00",
+  "payload": "data/dashboard/dashboard_payload.json",
+  "schema": "sql/schema.sql",
+  "table_row_counts": {
+    "fact_competitive_panel": 22,
+    "fact_supporting_2025": 18,
+    "fact_scenario_inputs": 18,
+    "fact_scenario_outputs": 7,
+    "fact_share_gap_summary": 5
+  },
+  "db_validation": {
+    "fact_competitive_panel_rows": 22,
+    "unknown_rows": 2,
+    "standalone_share_rows": 6,
+    "post_break_share_rows": 2,
+    "shopee_2025_share": 54.0,
+    "combined_2025_share": 38.0
+  },
+  "exports": [
+    "data/dashboard/exports/v_competitive_panel_all.csv",
+    "data/dashboard/exports/v_market_share_plottable.csv",
+    "data/dashboard/exports/v_market_share_standalone_2022_2024.csv",
+    "data/dashboard/exports/v_market_share_post_break_2025.csv",
+    "data/dashboard/exports/v_legacy_tokopedia_unknown_2025.csv",
+    "data/dashboard/exports/v_gmv_estimates.csv",
+    "data/dashboard/exports/v_access_metrics.csv",
+    "data/dashboard/exports/v_tts_labeled_gmv.csv",
+    "data/dashboard/exports/v_scenario_gap_bands.csv",
+    "data/dashboard/exports/v_share_gap_summary.csv",
+    "data/dashboard/exports/v_dashboard_filter_keys.csv"
+  ],
+  "sqlite_status": "deprecated_removed",
+  "regenerate": "python3 scripts/build_dashboard_sql.py",
+  "prerequisite": "PostgreSQL reachable; competitive_panel.csv and Gate 7A share_gap_summary.csv exist"
+}

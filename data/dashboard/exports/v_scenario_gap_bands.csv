@@ -1,0 +1,4 @@
+scenario_id,scenario_name,metric,unit,base_2025_value,scenario_low,scenario_high,value_type,direction,mechanism,key_risk,notes
+A,Shopee Continuation,shopee_minus_combined_share_gap_pp,percentage_points,16,14,20,SCENARIO,stable_to_wider,Leader execution advantage; Combined conversion plateaus,Underestimating Combined ecosystem conversion,Illustrative band only — not a forecast
+B,Combined Challenger Upside,shopee_minus_combined_share_gap_pp,percentage_points,16,8,14,SCENARIO,narrows,Content+marketplace conversion raises Combined share,Access≠GMV over-reading; Shopee defense,Illustrative band only
+C,Challenger Underperformance,shopee_minus_combined_share_gap_pp,percentage_points,16,18,24,SCENARIO,widens,Integration friction + rationalisation; Shopee takes share,Missing late Combined rebound,Illustrative band only

@@ -1,0 +1,122 @@
+{
+  "gate": "10B",
+  "generated_at": "2026-08-14T10:33:01.150091+00:00",
+  "status": "PASS",
+  "checks_total": 21,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "check": "file_.env.example",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_frontend/vercel.json",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_frontend/public/data/dashboard_data.json",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_scripts/export_dashboard_data.py",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_python/dashboard_data.py",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_sql/schema.sql",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_README.md",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_research/dashboard_data_contract.md",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file_research/gate10_deployment.md",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "api_package_removed",
+      "status": "PASS",
+      "detail": "api/main.py absent"
+    },
+    {
+      "check": "dockerfile_removed",
+      "status": "PASS",
+      "detail": "API Dockerfile absent"
+    },
+    {
+      "check": "procfile_removed",
+      "status": "PASS",
+      "detail": "API Procfile absent"
+    },
+    {
+      "check": "frontend_no_api_fetch_paths",
+      "status": "PASS",
+      "detail": "no /api/ or VITE_API_BASE in frontend src"
+    },
+    {
+      "check": "frontend_loads_static_json",
+      "status": "PASS",
+      "detail": "static dashboard_data.json referenced"
+    },
+    {
+      "check": "static_locked_shopee_2025",
+      "status": "PASS",
+      "detail": "54.0"
+    },
+    {
+      "check": "static_unknown_null",
+      "status": "PASS",
+      "detail": "legacy unknown nulls"
+    },
+    {
+      "check": "static_deployment_mode",
+      "status": "PASS",
+      "detail": "static_snapshot"
+    },
+    {
+      "check": "sql_schema_preserved",
+      "status": "PASS",
+      "detail": "sql/schema.sql present"
+    },
+    {
+      "check": "build_dashboard_sql_preserved",
+      "status": "PASS",
+      "detail": "Gate 7B builder present"
+    },
+    {
+      "check": "gitignore_env",
+      "status": "PASS",
+      "detail": ".env ignored"
+    },
+    {
+      "check": "readme_static_architecture",
+      "status": "PASS",
+      "detail": "README describes static public + PostgreSQL analytical"
+    }
+  ],
+  "manual_steps_remaining": [
+    "Connect the GitHub repo to Vercel with root directory frontend/.",
+    "Ensure frontend/public/data/dashboard_data.json is committed after export.",
+    "Capture real screenshots after the static site is reachable."
+  ],
+  "public_requires_database_url": false,
+  "public_requires_fastapi": false,
+  "cors_required_for_public_ui": false
+}

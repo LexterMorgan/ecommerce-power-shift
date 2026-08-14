@@ -1,0 +1,6 @@
+{
+  "url": "https://api.worldbank.org/v2/country/IDN/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2015:2025&per_page=100",
+  "acquired_at": "2026-08-12T13:13:49.889304+00:00",
+  "indicator": "NY.GDP.MKTP.KD.ZG",
+  "name": "GDP growth (annual %)"
+}

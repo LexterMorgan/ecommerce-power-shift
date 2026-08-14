@@ -1,0 +1,29 @@
+.venv/
+.mplconfig/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+.env
+
+# Frontend / Node build artifacts
+frontend/node_modules/
+frontend/dist/
+node_modules/
+dist/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Python / coverage tooling
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage/
+*.log
+
+# Local Cursor scaffolding (optional; not required for reproduce)
+.cursor/

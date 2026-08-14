@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-08-14T10:16:26.812398+00:00",
+  "upstream": "/Users/lex/Projects/ecommerce-power-shift/data/processed/market_position/market_position_indonesia.csv",
+  "output": "/Users/lex/Projects/ecommerce-power-shift/data/processed/analysis_ready/competitive_panel.csv",
+  "validation": {
+    "rows": 22,
+    "observed": 19,
+    "derived": 1,
+    "unknown": 2,
+    "analytical_entities": [
+      "Combined Tokopedia + TikTok Shop",
+      "Legacy Tokopedia",
+      "Shopee",
+      "TikTok Shop"
+    ],
+    "status": "PASS"
+  },
+  "rules": [
+    "No fabricated Legacy Tokopedia 2025 GMV/share",
+    "Combined 2025 != Legacy Tokopedia",
+    "UNKNOWN values remain null",
+    "Does not overwrite raw or historical market_position",
+    "Analytical allowlist only: Shopee, Legacy Tokopedia, TikTok Shop, Combined"
+  ]
+}

@@ -1,0 +1,8 @@
+scenario_id,scenario_name,metric,unit,base_2025_value,scenario_low,scenario_high,value_type,direction,mechanism,key_risk,notes
+A,Shopee Continuation,shopee_minus_combined_share_gap_pp,percentage_points,16,14,20,SCENARIO,stable_to_wider,Leader execution advantage; Combined conversion plateaus,Underestimating Combined ecosystem conversion,Illustrative band only — not a forecast
+A,Shopee Continuation,competitive_leader,entity_label,Shopee,Shopee,Shopee,SCENARIO,Shopee_holds,Share gap remains material,Combined catch-up,
+B,Combined Challenger Upside,shopee_minus_combined_share_gap_pp,percentage_points,16,8,14,SCENARIO,narrows,Content+marketplace conversion raises Combined share,Access≠GMV over-reading; Shopee defense,Illustrative band only
+B,Combined Challenger Upside,competitive_leader,entity_label,Shopee,Shopee,Shopee_or_contested,SCENARIO,pressure_on_Shopee,Combined closes but may not overtake in band,Overtake not required for upside,Band still has Shopee ahead at high end of gap 8-14
+C,Challenger Underperformance,shopee_minus_combined_share_gap_pp,percentage_points,16,18,24,SCENARIO,widens,Integration friction + rationalisation; Shopee takes share,Missing late Combined rebound,Illustrative band only
+C,Challenger Underperformance,competitive_leader,entity_label,Shopee,Shopee,Shopee,SCENARIO,Shopee_extends,Gap widens vs Combined,False signal from short soft patch,
+ALL,Shared constraint,legacy_tokopedia_2025_gmv_share,percent,,,,UNKNOWN,n/a,n/a,Fabrication temptation,MUST remain missing in all scenarios
