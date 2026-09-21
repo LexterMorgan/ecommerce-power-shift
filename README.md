@@ -1,433 +1,168 @@
-# E-Commerce Power Shift: Shopee vs Tokopedia in Indonesia
+# E-Commerce Power Shift
 
-Portfolio data analytics project investigating competitive market-position changes in Indonesia's e-commerce landscape through a reproducible research pipeline and static executive dashboard.
+[![Dashboard](https://img.shields.io/badge/Dashboard-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://ecommerce-power-shift.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Source%20code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/LexterMorgan/ecommerce-power-shift)
 
-🔗 **[View Live Dashboard](https://ecommerce-power-shift.vercel.app/)**
+[![Python](https://img.shields.io/badge/Python-data%20analysis-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/pandas-data%20preparation-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-analytical%20layer-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-data%20access-D71F00?style=flat-square)](https://www.sqlalchemy.org/)
+[![React](https://img.shields.io/badge/React-dashboard-149ECA?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-frontend-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-tooling-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
+[![Recharts](https://img.shields.io/badge/Recharts-visualization-22C55E?style=flat-square)](https://recharts.org/)
 
----
+An evidence-driven competitive analysis of **Shopee and Tokopedia-related entities in Indonesia**.
 
-## Dashboard Preview
+The project investigates how marketplace position changed between 2022 and 2025 while preserving the distinction between standalone Tokopedia, TikTok Shop, and the later combined entity.
 
-![Overview](docs/screenshots/Overview.png)
+The central research question is:
 
-![Competitive](docs/screenshots/Competitive.png)
+> How did Shopee’s competitive position in Indonesia change relative to Tokopedia, and what can the available evidence actually support?
 
-![Scenarios](docs/screenshots/Scenarios.png)
+![Dashboard overview](docs/screenshots/Overview.png)
 
-![Supporting](docs/screenshots/Supporting.png)
-
----
-
-## Portfolio Overview
-
-This project examines how Shopee's competitive position changed relative to Tokopedia-related entities in Indonesia, with particular attention to the structural break surrounding the Tokopedia–TikTok Shop combination.
-
-The dashboard presents evidence-labeled market-share and supporting metrics while explicitly separating observed values from derived, unknown, and illustrative scenario values.
-
-The project demonstrates:
-
-- **2022–2024 standalone comparison:** Shopee vs Legacy Tokopedia
-- **2025 post-break comparison:** Shopee vs Combined Tokopedia + TikTok Shop
-- Explicit **UNKNOWN** handling where Legacy Tokopedia 2025 standalone share is not supported
-- Supporting internet-access evidence from APJII
-- TTS-labeled GMV supporting evidence
-- Scenario gap bands clearly labeled as **SCENARIO**, not forecasts-as-fact
-- A filterable analysis-ready panel covering year, marketplace, metric, value status, and comparability
-- PostgreSQL and SQL analytical infrastructure behind the dashboard
-- Validation gates designed to prevent unsupported values from entering the public dashboard
-
-The project deliberately avoids:
-
-- Fabricating proprietary platform data
-- Treating Combined Tokopedia + TikTok Shop as Legacy Tokopedia
-- Plotting UNKNOWN values as zero
-- Treating internet access as equivalent to GMV or market share
-- Presenting illustrative scenarios as observed outcomes
-- Making unsupported causal claims about why a platform gained or lost share
-
----
-
-## Business Problem
-
-Strategy and commercial teams need a transparent view of how competitive position changed over time, what evidence supports those changes, and where uncertainty remains.
-
-The central challenge is that Indonesia's e-commerce landscape changed materially around 2024–2025. A simple time-series comparison can therefore become misleading if post-break entities are treated as directly comparable to their pre-break counterparts.
-
-This project was designed to answer:
-
-> **How did Shopee's competitive position in Indonesia change relative to Tokopedia, and what observable market factors help explain that shift?**
-
-The analysis therefore focuses not only on the numbers themselves, but also on whether those numbers are actually comparable.
-
----
-
-## Key Analytical Finding
-
-The locked reference shares used throughout the dashboard are:
+## The short version
 
 | Period | Shopee | Tokopedia-related entity | Interpretation |
 |---|---:|---:|---|
-| 2022 | 36% | 35% Legacy Tokopedia | Standalone comparison |
-| 2024 | 46% | 23% Legacy Tokopedia | Standalone comparison |
-| 2025 | 54% | 38% Combined | Post-break comparison |
+| 2022 | 36% | Legacy Tokopedia: 35% | Comparable standalone baseline |
+| 2024 | 46% | Legacy Tokopedia: 23% | Shopee widens the standalone gap |
+| 2025 | 54% | Combined Tokopedia + TikTok Shop: 38% | Post-transaction comparison |
+| 2025 | 54% | Legacy Tokopedia standalone: **UNKNOWN** | Not reconstructed or plotted as zero |
 
-**Important:** the 2025 **38% Combined** value is not treated as a 2025 Legacy Tokopedia value.
+The most important analytical rule is:
 
-Legacy Tokopedia's 2025 standalone GMV/share is therefore explicitly represented as:
+> **Combined Tokopedia + TikTok Shop is not the same entity as Legacy Tokopedia.**
 
-> **UNKNOWN**
+Because the market structure changed, 2025 cannot be presented as a simple continuation of the 2022–2024 standalone comparison.
 
-rather than being inferred, estimated, or plotted as zero.
+## What the dashboard demonstrates
 
----
+- Historical competitive-position comparison
+- 2022–2024 standalone marketplace shares
+- 2025 Shopee versus Combined Tokopedia + TikTok Shop
+- Structural-break-aware interpretation
+- Market-share and supporting evidence panels
+- Access metrics kept separate from GMV metrics
+- Explicit `OBSERVED`, `DERIVED`, `UNKNOWN`, and `SCENARIO` labels
+- Filterable analysis by year, marketplace, metric, status, and comparability
+- Static dashboard delivery without exposing database credentials
 
-## Structural Break
+## Evidence discipline
 
-A major analytical requirement of this project is correctly handling the 2024 → 2025 structural break.
-
-Before the break:
-
-```text
-Shopee
-    vs
-Legacy Tokopedia
-```
-
-After the break:
-
-```text
-Shopee
-    vs
-Combined Tokopedia + TikTok Shop
-```
-
-These are not equivalent entities.
-
-Therefore:
-
-- 2022–2024 comparisons use the standalone Shopee vs Legacy Tokopedia dyad.
-- 2025 uses Shopee vs Combined.
-- Legacy Tokopedia 2025 remains UNKNOWN.
-- The dashboard does not create a false continuous Legacy Tokopedia series.
-
-This distinction is central to the project's analytical integrity.
-
----
-
-## Evidence Classification
-
-All important analytical values are classified using explicit evidence statuses:
+Every analytical value is assigned an evidence status.
 
 | Status | Meaning |
 |---|---|
-| `OBSERVED` | Directly supported by the underlying source |
-| `DERIVED` | Calculated from supported source values |
-| `UNKNOWN` | Required value is not sufficiently supported |
-| `SCENARIO` | Illustrative analytical scenario, not an observed result |
+| `OBSERVED` | Directly reported by an identifiable source |
+| `DERIVED` | Calculated from documented source values |
+| `UNKNOWN` | Not supported by available evidence |
+| `SCENARIO` | Illustrative range, not observed history or forecast fact |
 
-This classification is carried through the analysis-ready panel and dashboard layer.
+The project intentionally does not:
 
----
+- Treat missing Legacy Tokopedia 2025 data as zero
+- Present Combined 2025 share as a Legacy Tokopedia comeback
+- Treat platform access as equivalent to GMV
+- Invent proprietary company data
+- Turn scenario bands into forecasts
+- Make unsupported causal claims about why one platform won
 
-## Analytical Architecture
+## Dashboard views
 
-The project separates analytical work from public dashboard presentation.
+### Competitive overview
 
-```text
-Raw Sources
-    ↓
-Python ETL / Cleaning / Validation
-    ↓
-Canonical / Analysis-Ready Data
-    ↓
-PostgreSQL + SQL Analytical Layer
-    ↓
-Validation
-    ↓
-Dashboard Export
-    ↓
-Static JSON Snapshot
-    ↓
-React / Vite Dashboard
-    ↓
-Vercel
-```
+![Competitive overview](docs/screenshots/Competitive.png)
 
-The analysis-ready panel acts as the primary analytical checkpoint before dashboard consumption.
+### Scenario analysis
 
-This prevents the frontend from independently reconstructing business logic or recalculating locked analytical outputs.
+![Scenario analysis](docs/screenshots/Scenario.png)
 
----
+### Supporting evidence
 
-## Data & Research Workflow
+![Supporting evidence](docs/screenshots/Supporting.png)
 
-### 1. Source Acquisition
+### Explorer
 
-Traceable public sources are preserved with provenance information.
+![Explorer](docs/screenshots/Explorer.png)
 
-### 2. Data Preparation
-
-Source data is cleaned and transformed into canonical datasets while preserving source lineage.
-
-### 3. Structural-Break Investigation
-
-The 2024 → 2025 entity change is explicitly investigated before market-share comparisons are made.
-
-### 4. Evidence Classification
-
-Values are labeled as:
+## Analytical workflow
 
 ```text
-OBSERVED
-DERIVED
-UNKNOWN
-SCENARIO
+Traceable public sources
+        ↓
+Python cleaning and validation
+        ↓
+Analysis-ready datasets
+        ↓
+PostgreSQL and SQL views
+        ↓
+Validated dashboard export
+        ↓
+React/Vite static dashboard
 ```
 
-### 5. Analysis-Ready Panel
-
-The validated panel becomes the controlled analytical input for downstream dashboard outputs.
-
-### 6. PostgreSQL Analytical Layer
-
-The project includes a PostgreSQL schema and SQL views representing the analytical layer.
-
-### 7. Validation
-
-Locked values and structural rules are validated before dashboard export.
-
-### 8. Static Dashboard Export
-
-Validated analytical outputs are exported into:
-
-```text
-frontend/public/data/dashboard_data.json
-```
-
-The public dashboard then consumes that snapshot rather than connecting directly to the analytical database.
-
----
-
-## Dashboard
-
-The public dashboard contains several analytical views.
-
-### Overview
-
-Provides the executive-level comparison and separates:
-
-- **2022–2024 standalone comparison**
-- **2025 post-break comparison**
-
-The 2025 panel explicitly preserves UNKNOWN handling for Legacy Tokopedia.
-
-### Competitive
-
-Presents the main market-position comparison across the supported periods.
-
-### Scenarios
-
-Presents illustrative gap-band scenarios derived from the validated snapshot and scenario inputs.
-
-Scenario values are explicitly labeled as:
-
-> `SCENARIO`
-
-They are not presented as forecasts or observed market outcomes.
-
-### Supporting
-
-Provides supporting evidence such as internet-access metrics and TTS-labeled GMV.
-
-Access metrics are explicitly labeled as access rather than GMV.
-
----
-
-## Supporting Internet Access Evidence
-
-Internet-access metrics are treated as supporting evidence only.
-
-The dashboard therefore uses labels such as:
-
-```text
-Shopee — Internet access
-TikTok Shop — Internet access
-Legacy Tokopedia — Internet access
-```
-
-rather than presenting access as market share or GMV.
-
-Locked supporting access values include:
-
-```text
-9.57
-53.22
-27.37
-```
-
-These values are unchanged by the presentation layer.
-
----
-
-## Scenario Analysis
-
-Scenario analysis is used to explore illustrative competitive gaps without overstating certainty.
-
-The scenario layer is intentionally separated from observed market-share results.
-
-The dashboard derives scenario copy from the validated snapshot and scenario `base_2025_value` rather than hard-coding analytical values into the frontend.
-
-This keeps the presentation layer synchronized with the underlying analytical outputs.
-
----
-
-## Technology Stack
-
-### Data & Analysis
-
-- Python
-- pandas
-- NumPy
-- scikit-learn
-- Matplotlib
-- Statistical / analytical validation
-
-### Database
-
-- PostgreSQL
-- SQL
-- Analytical schema
-- SQL views
-- Dashboard export queries
-
-### Frontend
-
-- React
-- TypeScript
-- Vite
-- CSS
-
-### Deployment
-
-- GitHub
-- Vercel
-
----
-
-## Repository Structure
-
-```text
-ecommerce-power-shift/
-│
-├── analysis/
-│   ├── charts.py
-│   ├── load.py
-│   ├── run_analysis.py
-│   └── outputs/
-│       ├── figures/
-│       └── tables/
-│
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── dashboard/
-│   └── metadata/
-│
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── DATA_AVAILABILITY.md
-│   ├── DATA_DICTIONARY.md
-│   ├── DATA_SOURCES.md
-│   ├── PRD.md
-│   ├── RESEARCH_METHOD.md
-│   ├── TODO.md
-│   ├── WORKFLOW.md
-│   └── screenshots/
-│
-├── forecasting/
-│
-├── frontend/
-│   ├── public/
-│   │   └── data/
-│   │       └── dashboard_data.json
-│   └── src/
-│       ├── pages/
-│       └── ...
-│
-├── python/
-│
-├── research/
-│
-├── scripts/
-│
-├── sql/
-│
-├── tests/
-│
-├── .env.example
-├── .gitignore
-├── AGENTS.md
-├── README.md
-└── requirements.txt
-```
-
----
-
-## Environment Variables
-
-The public dashboard does not require database credentials or an API connection.
-
-| Variable | Public UI | Purpose |
-|---|---|---|
-| `DATABASE_URL` | No | Local PostgreSQL analytical layer |
-| API URL | No | No public API required |
-
-The environment template is provided in:
-
-```text
-.env.example
-```
-
-No production database credentials are required by the public Vercel deployment.
-
----
-
-## Local Setup
-
-### Python Environment
+The project uses PostgreSQL and SQL as the analytical layer, while the public dashboard consumes a version-controlled JSON snapshot.
+
+The public UI does not require:
+
+- A live API
+- Public PostgreSQL credentials
+- FastAPI hosting
+- CORS configuration
+- Runtime database access
+
+## Methodology
+
+1. Preserve traceable public sources and provenance.
+2. Clean source files into canonical analytical datasets.
+3. Separate 2022–2024 standalone entities from the 2025 combined structure.
+4. Label every value by evidence status and comparability.
+5. Validate the analytical panel and locked reference values.
+6. Export a static dashboard payload for the frontend.
+7. Keep unknown values null and visibly unresolved.
+
+## Key limitations
+
+- This is a read-only historical snapshot, not a live market-monitoring system.
+- Legacy Tokopedia’s standalone 2025 GMV/share remains unknown.
+- Combined Tokopedia + TikTok Shop must not be compared directly to Legacy Tokopedia without structural-break context.
+- Access metrics are not GMV metrics.
+- Scenario bands are illustrative and are not forecasts.
+- The project does not claim causal explanations for market-share movement.
+- Event and driver pages are intentionally limited to supported evidence.
+- Public deployment uses a static JSON snapshot generated from the analytical layer.
+
+## Local setup
+
+### Analytical environment
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 
-### PostgreSQL Analytical Layer
-
-Configure a local PostgreSQL database:
+For the PostgreSQL analytical layer:
 
 ```bash
 export DATABASE_URL=postgresql://localhost:5432/ecommerce_power_shift
 createdb ecommerce_power_shift
-```
-
-Build the SQL analytical layer:
-
-```bash
 python3 scripts/build_dashboard_sql.py
 ```
 
-### Generate Dashboard Snapshot
+### Generate the dashboard snapshot
 
 ```bash
 python3 scripts/export_dashboard_data.py
 ```
 
-This generates:
+The generated file is written to:
 
 ```text
 frontend/public/data/dashboard_data.json
 ```
 
-### Frontend
+### Run the frontend
 
 ```bash
 cd frontend
@@ -435,21 +170,17 @@ npm install
 npm run dev
 ```
 
-The dashboard can then be opened locally through the Vite development server.
-
----
+Open [http://localhost:5173](http://localhost:5173).
 
 ## Validation
 
-The project includes automated validation across the analytical and frontend layers.
-
-### Python / Gate Validation
-
 ```bash
+python3 scripts/run_gate9_validation.py
+python3 scripts/check_production_readiness.py
 python3 -m pytest tests/ -q
 ```
 
-### Frontend
+Frontend checks:
 
 ```bash
 cd frontend
@@ -457,181 +188,34 @@ npm test
 npm run build
 ```
 
-The final validation included:
-
-- Vitest: **9 passed**
-- Gate 10 pytest: **4 passed**
-- Panel: **22 rows**
-- Allowlist intact
-- Peer entities absent
-- Gap bands: **1 / 23 / 16**
-- Shopee 2025: **54**
-- Combined 2025: **38**
-- Legacy Tokopedia 2025: **UNKNOWN**
-- Access values: **9.57 / 53.22 / 27.37**
-- Scenario SHA: `918635ad9898455d`
-
-Analytical outputs were unchanged by the final presentation-honesty fixes.
-
----
-
-## Dashboard Data Contract
-
-The public frontend consumes the validated static snapshot:
+## Repository structure
 
 ```text
-frontend/public/data/dashboard_data.json
+analysis/       Exploratory analysis and chart generation
+data/           Raw, processed, and dashboard-ready datasets
+docs/           Data sources, availability, and project documentation
+forecasting/    Scenario and competitive-evolution work
+frontend/       React/Vite dashboard
+python/         Reusable data preparation modules
+research/       Methodology, provenance, and analytical findings
+scripts/        Export, validation, and production checks
+sql/            PostgreSQL schema, views, and analytical queries
+tests/          Data and dashboard validation
 ```
 
-The dashboard data contract is documented in:
+## Key documentation
 
-```text
-research/dashboard_data_contract.md
-```
+- [`docs/TODO.md`](docs/TODO.md) — project roadmap
+- [`research/dashboard_data_contract.md`](research/dashboard_data_contract.md) — static dashboard data contract
+- [`research/gate7b_dashboard_sql_schema.md`](research/gate7b_dashboard_sql_schema.md) — analytical SQL layer
+- [`research/gate9_validation_report.md`](research/gate9_validation_report.md) — validation results
+- [`research/gate10_deployment.md`](research/gate10_deployment.md) — deployment instructions
+- [`AGENTS.md`](AGENTS.md) — repository working rules
 
-The static snapshot approach was selected because this project presents historical analytical results rather than live transactional data.
+## Project status
 
----
+The analytical pipeline, PostgreSQL layer, validation checks, and static React dashboard are complete.
 
-## Production Deployment
+Remaining work is limited to optional research enhancements, manual Vercel connection, and refreshed dashboard screenshots after deployment.
 
-The public dashboard is deployed as a static React application.
-
-### Vercel Configuration
-
-```text
-Root Directory:
-frontend
-
-Build Command:
-npm run build
-
-Output Directory:
-dist
-```
-
-The deployment does not require:
-
-- Public PostgreSQL
-- `DATABASE_URL`
-- FastAPI
-- Express
-- Public database credentials
-- CORS configuration
-
-The public deployment flow is:
-
-```text
-GitHub
-   ↓
-Vercel
-   ↓
-frontend/
-   ↓
-Vite build
-   ↓
-Static dashboard
-```
-
----
-
-## Known Limitations
-
-This project intentionally has several limitations.
-
-### Historical Snapshot
-
-The public dashboard is read-only and based on a validated historical snapshot.
-
-It is not a live market-monitoring system.
-
-### Legacy Tokopedia 2025
-
-Legacy Tokopedia's 2025 standalone GMV/share is:
-
-```text
-UNKNOWN
-```
-
-No unsupported value is substituted.
-
-### Combined ≠ Legacy Tokopedia
-
-The 2025 Combined value represents the post-break entity and should not be interpreted as Legacy Tokopedia's standalone performance.
-
-### Access ≠ GMV
-
-Internet-access metrics are supporting evidence and are not treated as marketplace GMV or market share.
-
-### Scenario ≠ Forecast
-
-Scenario bands are illustrative analytical ranges and are not presented as factual forecasts.
-
-### No Fabricated Causal Narrative
-
-The project does not claim that any single factor definitively explains Shopee's competitive position without sufficient evidence.
-
-### Manual Screenshots
-
-Dashboard screenshots are captured manually from the deployed application and stored under:
-
-```text
-docs/screenshots/
-```
-
----
-
-## Key Documentation
-
-| Document | Purpose |
-|---|---|
-| `docs/PRD.md` | Product requirements |
-| `docs/ARCHITECTURE.md` | System and analytical architecture |
-| `docs/DATA_AVAILABILITY.md` | Data availability and constraints |
-| `docs/DATA_DICTIONARY.md` | Data definitions |
-| `docs/DATA_SOURCES.md` | Source provenance |
-| `docs/RESEARCH_METHOD.md` | Research methodology |
-| `docs/WORKFLOW.md` | End-to-end workflow |
-| `docs/TODO.md` | Remaining optional/manual work |
-| `research/gate7b_dashboard_sql_schema.md` | PostgreSQL analytical layer |
-| `research/dashboard_data_contract.md` | Dashboard data contract |
-| `research/gate9_validation_report.md` | Analytical validation |
-| `research/gate10_deployment.md` | Deployment validation |
-| `AGENTS.md` | Repository operating instructions |
-
----
-
-## Status
-
-### Portfolio Ready
-
-The scoped analytical deliverable is complete.
-
-The completed scope includes:
-
-- Evidence-labeled analytical outputs
-- Structural-break handling
-- Analysis-ready panel
-- Scenario analysis
-- PostgreSQL analytical layer
-- Dashboard export
-- Static React dashboard
-- Frontend validation
-- Production build validation
-- Static Vercel deployment
-- Dashboard preview screenshots
-- Repository documentation
-
-Optional backlog items and manual maintenance tasks remain non-blocking.
-
----
-
-## Author
-
-**Lexter Morgan**
-
-Data Analytics · Business Intelligence · Python · SQL · PostgreSQL · React
-
-🔗 **[GitHub](https://github.com/LexterMorgan)**
-
-🔗 **[Live Dashboard](https://ecommerce-power-shift.vercel.app/)**
+Built as a portfolio market-intelligence project by [Michael Alexander](https://github.com/LexterMorgan).
